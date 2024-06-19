@@ -1,7 +1,8 @@
 import itertools
 import numpy as np
 
-
+version = "v15.5"
+path = "/src/" +version + "/"
 
 def TsvToXML( SrcFilename , TargetFilename ):
 
@@ -39,13 +40,13 @@ def TsvToXML( SrcFilename , TargetFilename ):
              "Hierarchy is Plane => Motherboard => Silicon Module" ,
              "Hierarchy is Plane => Motherboard => Scintillator Module => Tileboard" ]
 
-  with XmlDocument( TargetFilename , tag="HGC" , labels=labels , sources=[ SrcFilename ] ) as root:
+  with XmlDocument( TargetFilename , tag="HGC" , labels=labels , sources=[path+SrcFilename ] ) as root:
     if root is None: return TargetFilename
     
     Planes , Motherboards , SiModules , ScModules , Tileboards = {} , {} , {} , {} , {}
 
     # -------------------------------
-    with open( SrcFilename , "r" ) as file:
+    with open(path+SrcFilename , "r" ) as file:
       headers = file.readline().split()  
       for line in file: 
       
