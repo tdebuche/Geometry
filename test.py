@@ -1,4 +1,4 @@
-from TSVtoXML.Andysprogramm import TsvToXML
+from TSVtoXML.Geometry import TsvToXML
 
 SrcFile = "TSVtoXML/src/v15.5/geometry_sipmontile.hgcal.txt"
 
