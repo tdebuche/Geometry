@@ -26,8 +26,8 @@ def reorganize_vertices(vertices,irot):
     if vertices[1][vertex_idx] < y_min :
       y_min = vertices[1][vertex_idx]
       idx_min = vertex_idx
-  vertices[0] = [vertices[0][(vertex_idx-idx_min)%len(vertices[0])] for vertex_idx in range(len(vertices[0]))]
-  vertices[1] = [vertices[1][(vertex_idx-idx_min)%len(vertices[0])]for vertex_idx in range(len(vertices[0]))]
+  vertices[0] = [vertices[0][(vertex_idx+idx_min)%len(vertices[0])] for vertex_idx in range(len(vertices[0]))]
+  vertices[1] = [vertices[1][(vertex_idx+idx_min)%len(vertices[0])]for vertex_idx in range(len(vertices[0]))]
   
   #rotate
   vertices[0] = [vertices[0][(vertex_idx+irot)%len(vertices[0])]for vertex_idx in range(len(vertices[0]))]
