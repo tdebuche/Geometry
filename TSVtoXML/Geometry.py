@@ -52,7 +52,7 @@ def TsvToXML( SrcFilename , TargetFilename ):
       
         module = Object()
         for header, value in zip( headers , line.split() ) : setattr( module , header , value )
-        module.plane , module.MB , module.u , module.v = int( module.plane ), int( module.MB ), int( module.u ), int( module.v )
+        module.plane , module.MB , module.u , module.v, module.irot = int( module.plane ), int( module.MB ), int( module.u ), int( module.v ), int(module.irot)
 
         # -------------------------------
         # Create the ID and check for errors in Pedro's file
@@ -156,7 +156,8 @@ def TsvToXML( SrcFilename , TargetFilename ):
                                                                       "TCcount"       : f"{None}" ,
                                                                       "HighOccupancy" : f"{module.IsHO}" ,
                                                                       "u"             : f"{module.u}" , 
-                                                                      "v"             : f"{module.v}" , 
+                                                                      "v"             : f"{module.v}" ,
+                                                                      "irot"          : f"{module.irot} ,
                                                                       "x"             : f"{module.coords[0]:.3f}" , 
                                                                       "y"             : f"{module.coords[1]:.3f}" , 
                                                                       "Vertices"      : ";".join( [ f"{X[0]:.3f},{X[1]:.3f}" for X in module.corners ] ) } )
@@ -168,7 +169,8 @@ def TsvToXML( SrcFilename , TargetFilename ):
                                                                     "TCcount"       : f"{module.TCcount}" ,
                                                                     "HighOccupancy" : f"{module.IsHO}" ,
                                                                     "u"             : f"{module.u}" , 
-                                                                    "v"             : f"{module.v}" , 
+                                                                    "v"             : f"{module.v}" ,
+                                                                    "irot"          : f"{module.irot} ,
                                                                     "x"             : f"{module.coords[0]:.3f}" , 
                                                                     "y"             : f"{module.coords[1]:.3f}" , 
                                                                     "Vertices"      : ";".join( [ f"{X[0]:.3f},{X[1]:.3f}" for X in module.corners ] ) } )
