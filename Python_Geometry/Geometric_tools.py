@@ -5,7 +5,7 @@ import json
 def item_list(jsonfile,item,layer):
   L = []
   with open(jsonfile,'r') as file:
-    data = json.load(file)[layer]
+    data = json.load(file)[layer-1]
   for module_idx in range(len(data)):
     if item =="id":
       L.append(data[module_idx]['id'])
