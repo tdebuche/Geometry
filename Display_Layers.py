@@ -34,9 +34,10 @@ for module_idx in range(len(Module_Vertices)):
 	Yvertices= vertices[1] +[vertices[1][0]]
 	x,y = np.sum(np.array(vertices[0]))/len(vertices[0]),np.sum(np.array(vertices[1]))/len(vertices[0])
 	plt.scatter((x+Xvertices[0])/2,(y+Yvertices[0])/2 ,color ="red")
-	STCs = single_module_STCs(Layer,vertices,irot,TCcount)
-	for STC_idx in range(len(STCs)):
-		plt.plot(STCs[STC_idx][0],STCs[STC_idx][1],color = "red")
+	if TCcount == 3:
+		STCs = single_module_STCs(Layer,vertices,irot,TCcount)
+		for STC_idx in range(len(STCs)):
+			plt.plot(STCs[STC_idx][0],STCs[STC_idx][1],color = "red")
 	if args.UV == "yes":
 	    u,v = Module_UV[module_idx][0],Module_UV[module_idx][1]
 	    plt.annotate("("+str(u)+","+str(v)+")",(x-60,y-10),size =  '8')
