@@ -1,6 +1,6 @@
 import xml.etree.cElementTree as ET
 import hashlib, os, datetime
-from Hgc import GUID
+from TSVtoXML import GUID
 from math import ceil
 
 # ===========================================================================================================================================================================  
