@@ -2,10 +2,10 @@ import numpy as np
 import awkward as ak
 import json
 
-def item_list(jsonfile,item):
+def item_list(jsonfile,item,layer):
   L = []
   with open(jsonfile,'r') as file:
-    data = json.load(file)[0]
+    data = json.load(file)[layer]
   for module_idx in range(len(data)):
     if item =="id":
       L.append(data[module_idx]['id'])
