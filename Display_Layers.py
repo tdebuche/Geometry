@@ -4,6 +4,7 @@ import os
 import argparse
 
 from Python_Geometry.Geometric_tools import item_list
+from Python_Geometry.Geometric_tools import reorganize_vertices
 
 
 parser = argparse.ArgumentParser()
@@ -25,6 +26,7 @@ plt.title(label =  'Layer '+str(Layer))
 plt.xlabel('x (mm)')
 plt.ylabel('y (mm)')                            
 for module_idx in range(len(Module_Vertices)):
+	Module_Vertices[module_idx] = reorganize_vertices(Module_Vertices[module_idx],Module_irot[module_idx])
 	Xvertices= Module_Vertices[module_idx][0] +[Module_Vertices[module_idx][0][0]]
 	Yvertices= Module_Vertices[module_idx][1] + [Module_Vertices[module_idx][1][0]]
 	x,y = np.sum(np.array(Module_Vertices[module_idx][0]))/len(Module_Vertices[module_idx][0]),np.sum(np.array(Module_Vertices[module_idx][1]))/len(Module_Vertices[module_idx][1])
