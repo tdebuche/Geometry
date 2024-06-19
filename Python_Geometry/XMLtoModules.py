@@ -16,6 +16,7 @@ def read_xml(file):
         layer = int(layer_element.get('id'))
         for motherboard_element in layer_element.findall('.//Motherboard'):
             for module_element in motherboard_element.findall('.//Module'):
+				irot = int(module_element.get('irot'))
                 int_id = int(module_element.get('id'),16)
 				irot = int(module_element.get('irot'))
                 module_id = str(f'{int_id : 08x}')
