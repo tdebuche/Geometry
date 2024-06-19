@@ -1,5 +1,5 @@
-from Hgc import GUID
-from Hgc.XmlSchema import *
+from TSVtoXML import GUID
+from TSVtoXML.XmlSchema import *
 import itertools
 import numpy as np
 
