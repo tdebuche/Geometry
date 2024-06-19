@@ -25,7 +25,7 @@ def read_xml(file):
                 v  = int(module_element.get('v'))
                 x = float(module_element.get('x'))
                 y = float(module_element.get('y'))
-                if module_element.get('TCcount'):
+                if module_element.get('TCcount') != "None":
                     TCcount = int(module_element.get('TCcount'))
                 verticesX,verticesY = vertices(module_element.get('Vertices'))
                 if Silliciumorscintillateur(int_id) == 'sillicium':
@@ -42,7 +42,7 @@ def read_xml(file):
                 v  = int(tile_element.get('v'))
                 x = float(tile_element.get('x'))
                 y = float(tile_element.get('y'))
-                if module_element.get('TCcount'):
+                if module_element.get('TCcount') != "None":
                     TCcount = int(module_element.get('TCcount'))
                 irot = 999
                 verticesX,verticesY = vertices(tile_element.get('Vertices'))
