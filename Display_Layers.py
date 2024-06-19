@@ -3,8 +3,7 @@ import matplotlib.pyplot as plt
 import os
 import argparse
 
-from Python_Geometry.Geometric_tools import item_list
-from Python_Geometry.Geometric_tools import reorganize_vertices
+from Python_Geometry.Geometric_tools import *
 
 
 parser = argparse.ArgumentParser()
@@ -19,6 +18,8 @@ Layer = args.Layer
 Module_Vertices = item_list('Python_Geometry/src/Modules.json','vertices',Layer)
 Module_UV = item_list('Python_Geometry/src/Modules.json','uv',Layer)
 Module_irot = item_list('Python_Geometry/src/Modules.json','irot',Layer)
+Module_TCcount = item_list('Python_Geometry/src/Modules.json','TCcount',Layer)
+
 
 
 plt.figure(figsize = (12,8))
@@ -26,16 +27,20 @@ plt.title(label =  'Layer '+str(Layer))
 plt.xlabel('x (mm)')
 plt.ylabel('y (mm)')                            
 for module_idx in range(len(Module_Vertices)):
-	Module_Vertices[module_idx] = reorganize_vertices(Module_Vertices[module_idx],Module_irot[module_idx])
-	Xvertices= Module_Vertices[module_idx][0] +[Module_Vertices[module_idx][0][0]]
-	Yvertices= Module_Vertices[module_idx][1] + [Module_Vertices[module_idx][1][0]]
-	x,y = np.sum(np.array(Module_Vertices[module_idx][0]))/len(Module_Vertices[module_idx][0]),np.sum(np.array(Module_Vertices[module_idx][1]))/len(Module_Vertices[module_idx][1])
+	irot = Module_irot[module_idx]
+	TCcount = Module_TCcount[module_idx]
+	vertices = reorganize_vertices(Module_Vertices[module_idx],irot)
+	Xvertices= vertices[0] +[vertices[0][0]]
+	Xvertices= vertices[1] +[vertices[1][0]]
+	x,y = np.sum(np.array(vertices[0]))/len(vertices[0]),np.sum(np.array(vertices[1]))/len(vertices[0])
 	plt.scatter((x+Xvertices[0])/2,(y+Yvertices[0])/2 ,color ="red")
+	STCs = single_module_STCs(Layer,vertices,irot,TCcount)
+	for STC_idx in range(len(STCs)):
+		plt.plot(STCs[STC_idx][0],STCs[STC_idx][1],color = "red")
 	if args.UV == "yes":
 	    u,v = Module_UV[module_idx][0],Module_UV[module_idx][1]
 	    plt.annotate("("+str(u)+","+str(v)+")",(x-60,y-10),size =  '8')
 	if args.irot == "yes":
-	    rot = Module_irot[module_idx]
-	    plt.annotate(str(rot),(x-60,y-10),size =  '8')
+	    plt.annotate(str(irot),(x-60,y-10),size =  '8')
 	plt.plot(Xvertices,Yvertices,color = "black")
 plt.show()
