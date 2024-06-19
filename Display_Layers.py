@@ -15,9 +15,9 @@ parser.add_argument("--Record",default = 'no', help="Record all layers")
 args = parser.parse_args()
 Layer = args.Layer
 
-Module_Vertices = item_list('Python_Geometry/src/Modules.json','vertices')
-Module_UV = item_list('Python_Geometry/src/Modules.json','uv')
-Module_irot = item_list('Python_Geometry/src/Modules.json','irot')
+Module_Vertices = item_list('Python_Geometry/src/Modules.json','vertices',Layer)
+Module_UV = item_list('Python_Geometry/src/Modules.json','uv',Layer)
+Module_irot = item_list('Python_Geometry/src/Modules.json','irot',Layer)
 
 
 plt.figure(figsize = (12,8))
