@@ -11,6 +11,8 @@ def item_list(jsonfile,item,layer):
       L.append(data[module_idx]['id'])
     if item =="irot":
       L.append(data[module_idx]['irot'])
+    if item =="TCcount":
+      L.append(data[module_idx]['TCcount'])
     if item =="uv":
       L.append([data[module_idx]['u'],data[module_idx]['v']])
     if item =="vertices":
