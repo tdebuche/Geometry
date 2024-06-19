@@ -25,8 +25,8 @@ plt.title(label =  'Layer '+str(Layer))
 plt.xlabel('x (mm)')
 plt.ylabel('y (mm)')                            
 for module_idx in range(len(Module_Vertices)):
-    Xvertices= Module_Vertices[module_idx][0] +[Module_Vertices[module_idx][0][0]]
-    Yvertices= Module_Vertices[module_idx][1] + [Module_Vertices[module_idx][1][0]]
+	Xvertices= Module_Vertices[module_idx][0] +[Module_Vertices[module_idx][0][0]]
+	Yvertices= Module_Vertices[module_idx][1] + [Module_Vertices[module_idx][1][0]]
 	x,y = np.sum(np.array(Module_Vertices[module_idx][0]))/len(Module_Vertices[module_idx][0]),np.sum(np.array(Module_Vertices[module_idx][1]))/len(Module_Vertices[module_idx][1])
 	plt.scatter((x+Xvertices[0])/2,(y+Yvertices[0])/2 ,color ="red")
     if args.UV == "yes":
