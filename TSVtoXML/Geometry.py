@@ -157,7 +157,7 @@ def TsvToXML( SrcFilename , TargetFilename ):
                                                                       "HighOccupancy" : f"{module.IsHO}" ,
                                                                       "u"             : f"{module.u}" , 
                                                                       "v"             : f"{module.v}" ,
-                                                                      "irot"          : f"{module.irot} ,
+                                                                      "irot"          : f"{module.irot}" ,
                                                                       "x"             : f"{module.coords[0]:.3f}" , 
                                                                       "y"             : f"{module.coords[1]:.3f}" , 
                                                                       "Vertices"      : ";".join( [ f"{X[0]:.3f},{X[1]:.3f}" for X in module.corners ] ) } )
@@ -170,7 +170,7 @@ def TsvToXML( SrcFilename , TargetFilename ):
                                                                     "HighOccupancy" : f"{module.IsHO}" ,
                                                                     "u"             : f"{module.u}" , 
                                                                     "v"             : f"{module.v}" ,
-                                                                    "irot"          : f"{module.irot} ,
+                                                                    "irot"          : f"{module.irot}" ,
                                                                     "x"             : f"{module.coords[0]:.3f}" , 
                                                                     "y"             : f"{module.coords[1]:.3f}" , 
                                                                     "Vertices"      : ";".join( [ f"{X[0]:.3f},{X[1]:.3f}" for X in module.corners ] ) } )
