@@ -4,7 +4,7 @@ import awkward as ak
 
 def item_list(json,item):
   L = []
-  with open('your_file.json', 'r') as file:
+  with open(json, 'r') as file:
     data = json.load(file)[0]
   for module_idx in range(len(data)):
     if item =="id":
