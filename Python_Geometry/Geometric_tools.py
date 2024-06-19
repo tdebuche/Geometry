@@ -1,10 +1,10 @@
 import numpy as np
 import awkward as ak
+import json
 
-
-def item_list(json,item):
+def item_list(jsonfile,item):
   L = []
-  with open(json) as file:
+  with open(jsonfile,'r') as file:
     data = json.load(file)[0]
   for module_idx in range(len(data)):
     if item =="id":
@@ -15,7 +15,7 @@ def item_list(json,item):
       L.append([data[module_idx]['u'],data[module_idx]['v']])
     if item =="vertices":
       L.append([data[module_idx]['verticesX'],data[module_idx]['verticesY']])
-    return L
+  return L
     
   
 #def STCs_single_Module
