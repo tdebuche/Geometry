@@ -22,8 +22,8 @@ def read_xml(file):
                 v  = int(module_element.get('v'))
                 x = float(module_element.get('x'))
                 y = float(module_element.get('y'))
+				irot = 999
                 verticesX,verticesY = vertices(module_element.get('Vertices'))
-		irot = 999
                 if Silliciumorscintillateur(int_id) == 'sillicium':
                     Modules[layer-1].append({'id':module_id,'u':u,'v':v,'irot':irot,'verticesX' :verticesX,'verticesY' :verticesY})
 
@@ -39,7 +39,7 @@ def read_xml(file):
                 x = float(tile_element.get('x'))
                 y = float(tile_element.get('y'))
                 verticesX,verticesY = vertices(tile_element.get('Vertices'))
-		irot = int(module_element.get('irot'))
+				irot = int(module_element.get('irot'))
                 Modules[layer-1].append({'id':tile_id,'u':u,'v':v,'irot':irot,'verticesX' :verticesX,'verticesY' :verticesY})
     return Modules
 
