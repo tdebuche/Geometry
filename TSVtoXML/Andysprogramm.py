@@ -2,7 +2,7 @@ import itertools
 import numpy as np
 
 version = "v15.5"
-path = "/src/" +version + "/"
+path = "TSVtoXML/src/" +version + "/"
 
 def TsvToXML( SrcFilename , TargetFilename ):
 
