@@ -52,7 +52,7 @@ def TsvToXML( SrcFilename , TargetFilename ):
       
         module = Object()
         for header, value in zip( headers , line.split() ) : setattr( module , header , value )
-        module.plane , module.MB , module.u , module.v, module.irot = int( module.plane ), int( module.MB ), int( module.u ), int( module.v ), int(module.irot)
+        module.plane , module.MB , module.u , module.v, module.irot = int( module.plane ), int( module.MB ), int( module.u ), int( module.v ), int(float(module.irot))
 
         # -------------------------------
         # Create the ID and check for errors in Pedro's file
