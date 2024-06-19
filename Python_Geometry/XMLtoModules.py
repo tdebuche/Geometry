@@ -25,7 +25,8 @@ def read_xml(file):
                 v  = int(module_element.get('v'))
                 x = float(module_element.get('x'))
                 y = float(module_element.get('y'))
-                TCcount = int(module_element.get('TCcount'))
+                if module_element.get('TCcount'):
+                    TCcount = int(module_element.get('TCcount'))
                 verticesX,verticesY = vertices(module_element.get('Vertices'))
                 if Silliciumorscintillateur(int_id) == 'sillicium':
                     Modules[layer-1].append({'id':module_id,'u':u,'v':v,'irot':irot,'TCcount':TCcount,'verticesX' :verticesX,'verticesY' :verticesY})
@@ -41,7 +42,8 @@ def read_xml(file):
                 v  = int(tile_element.get('v'))
                 x = float(tile_element.get('x'))
                 y = float(tile_element.get('y'))
-                TCcount = int(module_element.get('TCcount'))
+                if module_element.get('TCcount'):
+                    TCcount = int(module_element.get('TCcount'))
                 irot = 999
                 verticesX,verticesY = vertices(tile_element.get('Vertices'))
                 Modules[layer-1].append({'id':tile_id,'u':u,'v':v,'irot':irot,'TCcount':TCcount,'verticesX' :verticesX,'verticesY' :verticesY})
