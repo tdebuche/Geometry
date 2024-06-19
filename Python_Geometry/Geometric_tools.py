@@ -44,7 +44,7 @@ def single_module_STCs(layer,vertices,irot,TCcount):
   if TCcount == 3:
     return single_LDmodule_STCs(layer,vertices)
 
-def single_LDmodule_STCs(vertices,layer):
+def single_LDmodule_STCs(layer,vertices):
   x_middle,y_middle = np.sum(np.array(vertices[0]))/len(vertices[0]),np.sum(np.array(vertices[1]))/len(vertices[1])
   STC0_X,STC0_Y = [vertices[0][0],vertices[0][1],x_middle,vertices[0][5]], [vertices[1][0],vertices[1][1],y_middle,vertices[1][5]]
   STC1_X,STC1_Y = [vertices[0][2],vertices[0][3],x_middle,vertices[0][1]], [vertices[1][2],vertices[1][3],y_middle,vertices[1][1]]
