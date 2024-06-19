@@ -1,5 +1,6 @@
 import itertools
 import numpy as np
+from TSVtoXML.XmlSchema import *
 
 version = "v15.5"
 path = "TSVtoXML/src/" +version + "/"
