@@ -1,3 +1,3 @@
-from TSVtoXML.Andysprogramm import TSVtoXML
+from TSVtoXML.Andysprogramm import TsvToXML
 
-print(TSVtoXML("geometry_sipmontile.hgcal.txt","outputtest"))
+print(TsvToXML("geometry_sipmontile.hgcal.txt","outputtest"))
