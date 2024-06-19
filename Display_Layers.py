@@ -29,10 +29,10 @@ for module_idx in range(len(Module_Vertices)):
     Yvertices= Module_Vertices[module_idx][1] + [Module_Vertices[module_idx][1][0]]
     x,y = np.sum(np.array(Module_Vertices[module_idx][0]))/len(Module_Vertices[module_idx][0]),np.sum(np.array(Module_Vertices[module_idx][1]))/len(Module_Vertices[module_idx][1]) 
     if args.UV == "yes":
-	u,v = Module_UV[module_idx][0],Module_UV[module_idx][1]
- 	plt.annotate("("+str(u)+","str(v)+")",(x-60,y-10))
+	    u,v = Module_UV[module_idx][0],Module_UV[module_idx][1]
+	    plt.annotate("("+str(u)+","str(v)+")",(x-60,y-10))
     if args.irot == "yes":
-	rot = Module_irot[module_idx]
-	plt.annotate(rot,(x-60,y-10))
+	    rot = Module_irot[module_idx]
+	    plt.annotate(rot,(x-60,y-10))
     plt.plot(Xvertices,Yvertices,color = "black")
 plt.show()
