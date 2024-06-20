@@ -73,8 +73,8 @@ def single_HDmodule_STCs(vertices):
   return STCs 
 
 def single_tileboard_STCs(layer,vertices,u,TCcount):
-  Scint_Letter, Scint_Number = Scintillatortype(u,Layer)
-  return(ScintillatorSTCs(vertices,Layer,Scint_Letter,Scint_Number))
+  Scint_Letter, Scint_Number = Scintillatortype(u,layer)
+  return(ScintillatorSTCs(vertices,layer,Scint_Letter,Scint_Number))
 
 
 
@@ -134,6 +134,9 @@ def Scintillatortype(u,Layer): #Return the type of the Scintillator Modules[inde
 
 
 def ScintillatorSTCs(Scintillator,Layer,Scint_Letter,Scint_Number):
+    Scintillator = np.array(Scintillator)
+    I = [2,3,0,1]
+    L = []
     if Scint_Letter in ['J','K','D','E','G'] and Scint_Number > 5 :
         ratio = Scint_Number/8
         x1,y1 = (((Scintillator[0,I[0]]-Scintillator[0,I[1]]) /(ratio*2) +Scintillator[0,I[1]]),((Scintillator[1,I[0]]-Scintillator[1,I[1]])/(ratio*2)+Scintillator[1,I[1]]))

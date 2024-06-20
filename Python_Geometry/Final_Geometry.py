@@ -21,7 +21,7 @@ def One_Layer_STCs(layer,modules):
       vertices =  [module['verticesX'],module['verticesY']]
       tileboard_STCs =  single_tileboard_STCs(layer,vertices,module['u'],module['TCcount'])
       for STC_idx in range(len(tileboard_STCs)):
-        STCs.append({"id": module['id'], "type": 'scintillator',"u": module['u'], "v": module['v'],"index": STC_idx, "verticesX": tileboard_STCs[STC_idx][0] , "verticesY": module_STCs[STC_idx][1]})
+        STCs.append({"id": module['id'], "type": 'scintillator',"u": module['u'], "v": module['v'],"index": STC_idx, "verticesX": tileboard_STCs[STC_idx][0] , "verticesY": tileboard_STCs[STC_idx][1]})
       
   return(STCs)
 
