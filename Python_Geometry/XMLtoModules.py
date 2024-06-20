@@ -1,3 +1,4 @@
+
 import json
 import numpy as np
 import awkward as ak
@@ -44,8 +45,8 @@ def read_xml(file):
                 v  = int(tile_element.get('v'))
                 x = float(tile_element.get('x'))
                 y = float(tile_element.get('y'))
-                if tile_element.get('TCcount') != "None":
-                    TCcount = int(tile_element.get('TCcount'))
+                if motherboard_element.get('TCcount') != "None":
+                    TCcount = int(motherboard_element.get('TCcount'))
                 else :
                     TCcount = 999
                 irot = 999
