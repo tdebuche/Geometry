@@ -6,7 +6,7 @@ def One_Layer_STCs(modules):
   STCs = []
   for module_idx in range(len(modules)):
     module =  modules[module_idx]
-    if module['TCcount'] != 999 :
+    if module['type'] = "silicon" :
       vertices =  [module['verticesX'],module['verticesY']]
       vertices[0] = vertices[0] + vertices[0][0:6-len(vertices[0])]
       vertices[1] = vertices[1] + vertices[1][0:6-len(vertices[1])]
