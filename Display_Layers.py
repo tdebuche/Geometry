@@ -36,6 +36,8 @@ for module_idx in range(len(Module_Vertices)):
 	TCcount = Module_TCcount[module_idx]
 	if irot != 999:
 		vertices = reorganize_vertices(Module_Vertices[module_idx],irot)
+	else :
+		vertices = Module_Vertices[module_idx]
 	Xvertices= vertices[0] +[vertices[0][0]]
 	Yvertices= vertices[1] +[vertices[1][0]]
 	x,y = np.sum(np.array(vertices[0]))/len(vertices[0]),np.sum(np.array(vertices[1]))/len(vertices[0])
