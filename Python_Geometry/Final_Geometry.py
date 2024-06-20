@@ -1,3 +1,4 @@
+import json
 from Python_Geometry.Geometric_tools import single_module_STCs
 
 
@@ -19,9 +20,9 @@ def STC_geometry(jsonfile):
   with open(jsonfile,'r') as file:
     modules = json.load(file)
   for layer in range(47):
-    layer_modules = modules[layer-1]
+    one_layer_modules = modules[layer-1]
     if layer > 26:
-      STCs.append(One_Layer_STCs(modules))
+      STCs.append(One_Layer_STCs(one_layer_modules))
   with open('Python_Geometry/src/STCs.json', 'w') as file:
     json.dump(STCs, file)
   

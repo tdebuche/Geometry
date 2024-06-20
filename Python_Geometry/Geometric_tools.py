@@ -60,8 +60,8 @@ def single_HDmodule_STCs(vertices):
     x_middle0,y_middle0 = (big_STC_X[0] + big_STC_X[1])/2,(big_STC_Y[0] + big_STC_Y[1])/2
     x_middle1,y_middle1 = (big_STC_X[1] + big_STC_X[2])/2,(big_STC_Y[1] + big_STC_Y[2])/2
     x_middle2,y_middle2 = (big_STC_X[2] + big_STC_X[3])/2,(big_STC_Y[2] + big_STC_Y[3])/2
-    x_middle3,y_middle3 = (big_STC_X[3] + big_STC_X[4])/2,(big_STC_Y[3] + big_STC_Y[4])/2
-    x_center,y_center = np.sum(np.array(big_STC_X))/4,np.sum(np.array(big_STC_Y))/4)
+    x_middle3,y_middle3 = (big_STC_X[3] + big_STC_X[0])/2,(big_STC_Y[3] + big_STC_Y[0])/2
+    x_center,y_center = np.sum(np.array(big_STC_X))/4,np.sum(np.array(big_STC_Y))/4
     STC0_X,STC0_Y = [big_STC_X[0],x_middle0,x_center,x_middle3], [big_STC_Y[0],y_middle0,y_center,y_middle3]
     STC1_X,STC1_Y = [big_STC_X[1],x_middle1,x_center,x_middle0], [big_STC_Y[1],y_middle1,y_center,y_middle0]
     STC2_X,STC2_Y = [big_STC_X[2],x_middle2,x_center,x_middle1], [big_STC_Y[2],y_middle2,y_center,y_middle1]
