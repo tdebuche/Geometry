@@ -73,5 +73,3 @@ def single_HDmodule_STCs(vertices):
   return STCs 
 
 
-        L.append([[Scintillator[0,I[3]],x4,x5,x3bis],[Scintillator[1,I[3]],y4,y5,y3bis]])
-    return L
