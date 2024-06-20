@@ -1,4 +1,3 @@
-
 import json
 import numpy as np
 import awkward as ak
@@ -31,8 +30,8 @@ def read_xml(file):
                 else :
                     TCcount = 999
                 verticesX,verticesY = vertices(module_element.get('Vertices'))
-                if Silliciumorscintillateur(int_id) == 'sillicium':
-                    Modules[layer-1].append({'id':module_id,'u':u,'v':v,'irot':irot,'TCcount':TCcount,'verticesX' :verticesX,'verticesY' :verticesY})
+                if Silliciumorscintillateur(int_id) == 'silicon':
+                    Modules[layer-1].append({'id':module_id,'type':"silicon",'u':u,'v':v,'irot':irot,'TCcount':TCcount,'verticesX' :verticesX,'verticesY' :verticesY})
 
     layer = 0
     for layer_element in root.findall('.//Plane'):
@@ -51,7 +50,7 @@ def read_xml(file):
                     TCcount = 999
                 irot = 999
                 verticesX,verticesY = vertices(tile_element.get('Vertices'))
-                Modules[layer-1].append({'id':tile_id,'u':u,'v':v,'irot':irot,'TCcount':TCcount,'verticesX' :verticesX,'verticesY' :verticesY})
+                Modules[layer-1].append({'id':tile_id,'type':"scintillator",'u':u,'v':v,'irot':irot,'TCcount':TCcount,'verticesX' :verticesX,'verticesY' :verticesY})
     with open('Python_Geometry/src/Modules.json', 'w') as recordfile:
         json.dump(Modules, recordfile)
     return Modules
@@ -60,7 +59,7 @@ def Silliciumorscintillateur(id):
     objtype = (id & 0x03C00000) //(16**5 *4)
     if objtype == 15:
         return('scintillator')
-    return('sillicium')
+    return('silicon')
                 
 def vertices(x):
     X = []
