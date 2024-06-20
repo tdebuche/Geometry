@@ -134,20 +134,6 @@ def Scintillatortype(u,Layer): #Return the type of the Scintillator Modules[inde
 
 
 def ScintillatorSTCs(Scintillator,Layer,Scint_Letter,Scint_Number):
-    z = Z[Layer-1]
-    L = []
-    etamin,phimax = functions.XYtoetaphi(Scintillator[0,0],Scintillator[1,0],z)
-    marker_i =0
-    for i in range(4):
-        x = Scintillator[0,i]
-        y = Scintillator[1,i]
-        if x == 0 and y == 0:
-            return 'error'
-        eta,phi = functions.XYtoetaphi(x,y,z)
-        if eta <= etamin+0.01 and phi >= phimax -1:
-            etamin,phimax = eta,phi
-            marker_i = i
-    I = np.array([(marker_i +i)%4 for i in range(4)])
     if Scint_Letter in ['J','K','D','E','G'] and Scint_Number > 5 :
         ratio = Scint_Number/8
         x1,y1 = (((Scintillator[0,I[0]]-Scintillator[0,I[1]]) /(ratio*2) +Scintillator[0,I[1]]),((Scintillator[1,I[0]]-Scintillator[1,I[1]])/(ratio*2)+Scintillator[1,I[1]]))
