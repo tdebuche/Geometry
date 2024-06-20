@@ -44,8 +44,8 @@ def read_xml(file):
                 v  = int(tile_element.get('v'))
                 x = float(tile_element.get('x'))
                 y = float(tile_element.get('y'))
-                if module_element.get('TCcount') != "None":
-                    TCcount = int(module_element.get('TCcount'))
+                if tile_element.get('TCcount') != "None":
+                    TCcount = int(tile_element.get('TCcount'))
                 else :
                     TCcount = 999
                 irot = 999
