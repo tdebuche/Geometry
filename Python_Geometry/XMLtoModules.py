@@ -51,6 +51,8 @@ def read_xml(file):
                 irot = 999
                 verticesX,verticesY = vertices(tile_element.get('Vertices'))
                 Modules[layer-1].append({'id':tile_id,'u':u,'v':v,'irot':irot,'TCcount':TCcount,'verticesX' :verticesX,'verticesY' :verticesY})
+    with open('Python_Geometry/src/Modules.json', 'w') as recordfile:
+        json.dump(Modules, recordfile)
     return Modules
 
 def Silliciumorscintillateur(id):
