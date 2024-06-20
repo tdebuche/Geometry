@@ -25,7 +25,12 @@ STC_Vertices = item_list('Python_Geometry/src/STCs.json','vertices',Layer)
 plt.figure(figsize = (12,8))
 plt.title(label =  'Layer '+str(Layer))
 plt.xlabel('x (mm)')
-plt.ylabel('y (mm)')                            
+plt.ylabel('y (mm)')
+for STC_idx in range(len(STC_Vertices)):
+	vertices = STC_Vertices[STC_idx]
+	Xvertices= vertices[0] +[vertices[0][0]]
+	Yvertices= vertices[1] +[vertices[1][0]]
+	plt.plot(Xvertices,Yvertices,color = "red")
 for module_idx in range(len(Module_Vertices)):
 	irot = Module_irot[module_idx]
 	TCcount = Module_TCcount[module_idx]
@@ -40,9 +45,5 @@ for module_idx in range(len(Module_Vertices)):
 	if args.irot == "yes":
 	    plt.annotate(str(irot),(x-60,y-10),size =  '8')
 	plt.plot(Xvertices,Yvertices,color = "black")
-for STC_idx in range(len(STC_Vertices)):
-	vertices = STC_Vertices[STC_idx]
-	Xvertices= vertices[0] +[vertices[0][0]]
-	Yvertices= vertices[1] +[vertices[1][0]]
-	plt.plot(Xvertices,Yvertices,color = "red")
+
 plt.show()
