@@ -72,6 +72,123 @@ def single_HDmodule_STCs(vertices):
     STCs.append([STC3_X,STC3_Y])
   return STCs 
 
-#def STCs_single_Module
+def Scintillatortype(index,Layer):
+    IndminScint = [95,95,95,95,72,72,52,52,52,52,37,37,37,37]
+    
+    if index < IndminScint[Layer-34]:
+        print('error')
+    if Layer > 33 and Layer < 38:
+        if (index - IndminScint[Layer-34])%2 == 0:
+            return ('J',8)
+        if (index - IndminScint[Layer-34])%2 == 1:
+            if Layer == 34:
+                return('J',4)
+            if Layer == 35:
+                return('J',6)
+            if Layer == 36:
+                return('J',7)
+            if Layer == 37:
+                return('J',8)
+    if Layer == 38 or Layer == 39:
+        if (index - IndminScint[Layer-34])%4 == 0:
+            return ('C',5)
+        if (index - IndminScint[Layer-34])%4 == 1:
+            return ('D',8)
+        if (index - IndminScint[Layer-34])%4 == 2:
+            return ('E',8)
+        if (index - IndminScint[Layer-34])%4 == 3:
+            if Layer == 38:
+                return ('G',3)
+            if Layer == 39:
+                return ('G',5)
+    if Layer > 39 and Layer <44:
+        if (index - IndminScint[Layer-34])%4 == 0:
+            return ('B',12)
+        if (index - IndminScint[Layer-34])%4 == 1:
+            return ('D',8)
+        if (index - IndminScint[Layer-34])%4 == 2:
+            return ('E',8)
+        if (index - IndminScint[Layer-34])%4 == 3:
+            if Layer == 40:
+                return ('G',7)
+            if Layer > 40 :
+                return ('G',8)
+    if Layer > 43:
+        if (index - IndminScint[Layer-34])%5 == 0:
+            return ('A',5)
+        if (index - IndminScint[Layer-34])%5 == 1:
+            return ('B',12)
+        if (index - IndminScint[Layer-34])%5 == 2:
+            return ('D',8)
+        if (index - IndminScint[Layer-34])%5 == 3:
+            return ('E',8)
+        if (index - IndminScint[Layer-34])%5 == 4:
+            if Layer < 47:
+                return ('G',8)
+            if Layer == 47 :
+                return ('G',6)
+        
 
-#def TCs_single_Module
+
+
+
+
+def ScintillatorSTCs(Scintillator,Layer,Scint_Letter,Scint_Number):
+    z = Z[Layer-1]
+    L = []
+    etamin,phimax = functions.XYtoetaphi(Scintillator[0,0],Scintillator[1,0],z)
+    marker_i =0
+    for i in range(4):
+        x = Scintillator[0,i]
+        y = Scintillator[1,i]
+        if x == 0 and y == 0:
+            return 'error'
+        eta,phi = functions.XYtoetaphi(x,y,z)
+        if eta <= etamin+0.01 and phi >= phimax -1:
+            etamin,phimax = eta,phi
+            marker_i = i
+    I = np.array([(marker_i +i)%4 for i in range(4)])
+    if Scint_Letter in ['J','K','D','E','G'] and Scint_Number > 5 :
+        ratio = Scint_Number/8
+        x1,y1 = (((Scintillator[0,I[0]]-Scintillator[0,I[1]]) /(ratio*2) +Scintillator[0,I[1]]),((Scintillator[1,I[0]]-Scintillator[1,I[1]])/(ratio*2)+Scintillator[1,I[1]]))
+        x2,y2 = ((Scintillator[0,I[1]]+Scintillator[0,I[2]])/2,(Scintillator[1,I[1]]+Scintillator[1,I[2]])/2)
+        x3,y3 = (((Scintillator[0,I[3]]-Scintillator[0,I[2]]) /(ratio*2) +Scintillator[0,I[2]]),((Scintillator[1,I[3]]-Scintillator[1,I[2]])/(ratio*2)+Scintillator[1,I[2]]))
+        x4,y4 = ((Scintillator[0,I[3]]+Scintillator[0,I[0]])/2,(Scintillator[1,I[3]]+Scintillator[1,I[0]])/2)
+        x,y = ((x1+x3)/2,(y1+y3)/2)
+        L.append([[Scintillator[0,I[0]],x1,x,x4],[Scintillator[1,I[0]],y1,y,y4]])
+        L.append([[Scintillator[0,I[1]],x2,x,x1],[Scintillator[1,I[1]],y2,y,y1]])
+        L.append([[Scintillator[0,I[2]],x3,x,x2],[Scintillator[1,I[2]],y3,y,y2]])
+        L.append([[Scintillator[0,I[3]],x4,x,x3],[Scintillator[1,I[3]],y4,y,y3]])
+    if Scint_Letter in ['A','C']:
+        ratio = Scint_Number/8
+        x1,y1 = (((Scintillator[0,I[1]]-Scintillator[0,I[0]]) /(ratio*2) +Scintillator[0,I[0]]),((Scintillator[1,I[1]]-Scintillator[1,I[0]])/(ratio*2)+Scintillator[1,I[0]]))
+        x2,y2 = ((Scintillator[0,I[1]]+Scintillator[0,I[2]])/2,(Scintillator[1,I[1]]+Scintillator[1,I[2]])/2)
+        x3,y3 = (((Scintillator[0,I[2]]-Scintillator[0,I[3]]) /(ratio*2) +Scintillator[0,I[3]]),((Scintillator[1,I[2]]-Scintillator[1,I[3]])/(ratio*2)+Scintillator[1,I[3]]))
+        x4,y4 = ((Scintillator[0,I[3]]+Scintillator[0,I[0]])/2,(Scintillator[1,I[3]]+Scintillator[1,I[0]])/2)
+        x,y = ((x1+x3)/2,(y1+y3)/2)
+        L.append([[Scintillator[0,I[0]],x1,x,x4],[Scintillator[1,I[0]],y1,y,y4]])
+        L.append([[Scintillator[0,I[1]],x2,x,x1],[Scintillator[1,I[1]],y2,y,y1]])
+        L.append([[Scintillator[0,I[2]],x3,x,x2],[Scintillator[1,I[2]],y3,y,y2]])
+        L.append([[Scintillator[0,I[3]],x4,x,x3],[Scintillator[1,I[3]],y4,y,y3]])
+    if Scint_Letter in ['J','K','D','E','G'] and Scint_Number <= 5 :
+        x2,y2 = ((Scintillator[0,I[1]]+Scintillator[0,I[2]])/2,(Scintillator[1,I[1]]+Scintillator[1,I[2]])/2)
+        x4,y4 = ((Scintillator[0,I[3]]+Scintillator[0,I[0]])/2,(Scintillator[1,I[3]]+Scintillator[1,I[0]])/2)
+        L.append([[Scintillator[0,I[0]],Scintillator[0,I[1]],x2,x4],[Scintillator[1,I[0]],Scintillator[1,I[1]],y2,y4]])
+        L.append([[Scintillator[0,I[2]],Scintillator[0,I[3]],x4,x2],[Scintillator[1,I[2]],Scintillator[1,I[3]],y4,y2]])
+    if Scint_Letter == 'B' :
+        ratio = Scint_Number/8
+        x1,y1 = ((Scintillator[0,I[0]] * 2/3+Scintillator[0,I[1]]*1/3),(Scintillator[1,I[0]] * 2/3+Scintillator[1,I[1]]*1/3))
+        x1bis,y1bis = ((Scintillator[0,I[0]] * 1/3+Scintillator[0,I[1]]*2/3),(Scintillator[1,I[0]] * 1/3+Scintillator[1,I[1]]*2/3))
+        x2,y2 = ((Scintillator[0,I[1]]+Scintillator[0,I[2]])/2,(Scintillator[1,I[1]]+Scintillator[1,I[2]])/2)
+        x3,y3 = ((Scintillator[0,I[2]] * 2/3+Scintillator[0,I[3]]*1/3),(Scintillator[1,I[2]] * 2/3+Scintillator[1,I[3]]*1/3))
+        x3bis,y3bis = ((Scintillator[0,I[2]] * 1/3+Scintillator[0,I[3]]*2/3),(Scintillator[1,I[2]] * 1/3+Scintillator[1,I[3]]*2/3))
+        x4,y4 = ((Scintillator[0,I[3]]+Scintillator[0,I[0]])/2,(Scintillator[1,I[3]]+Scintillator[1,I[0]])/2)
+        x5,y5 = ((x1+x3bis)/2,(y1+y3bis)/2)
+        x6,y6 = ((x1bis+x3)/2,(y1bis+y3)/2)
+        L.append([[Scintillator[0,I[0]],x1,x5,x4],[Scintillator[1,I[0]],y1,y5,y4]])
+        L.append([[x1,x1bis,x6,x5],[y1,y1bis,y6,y5]])
+        L.append([[Scintillator[0,I[1]],x2,x6,x1bis],[Scintillator[1,I[1]],y2,y6,y1bis]])
+        L.append([[Scintillator[0,I[2]],x3,x6,x2],[Scintillator[1,I[2]],y3,y6,y2]])
+        L.append([[x3,x3bis,x5,x6],[y3,y3bis,y5,y6]])
+        L.append([[Scintillator[0,I[3]],x4,x5,x3bis],[Scintillator[1,I[3]],y4,y5,y3bis]])
+    return L
