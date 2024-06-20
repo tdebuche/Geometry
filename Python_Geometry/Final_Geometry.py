@@ -13,6 +13,7 @@ def One_Layer_STCs(modules):
       module_STCs =  single_module_STCs(vertices,module['irot'],module['TCcount'])
       for STC_idx in range(len(module_STCs)):
         STCs.append({"id": module['id'], "u": module['u'], "v": module['v'],"index": STC_idx, "verticesX": module_STCs[STC_idx][0] , "verticesY": module_STCs[STC_idx][1]})
+  STCs = STCs + One_Layer_Scintillator_STCs(modules)
   return(STCs)
 
 def STC_geometry(jsonfile):
@@ -29,7 +30,8 @@ def STC_geometry(jsonfile):
     json.dump(STCs, file)
   
 
-
+def One_Layer_Scintillator_STCs(modules):
+  STCs = []
 
 
 
