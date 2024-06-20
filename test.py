@@ -7,6 +7,5 @@ SrcFile = "TSVtoXML/src/v15.5/geometry_sipmontile.hgcal.txt"
 #GeometryFile = TsvToXML( SrcFile , "Geometry.xml" )
 
 
-jsonlist = read_xml("Geometry.xml" )
-with open('Python_Geometry/src/Modules.json', 'w') as mon_fichier:
-    json.dump(jsonlist, mon_fichier)
+read_xml("Geometry.xml" )
+
