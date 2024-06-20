@@ -19,9 +19,9 @@ def STC_geometry(jsonfile):
   STCs = []
   with open(jsonfile,'r') as file:
     modules = json.load(file)
-  for layer in range(47):
+  for layer in range(47): #true layer is layer +1
     one_layer_modules = modules[layer]
-    if layer > 26:
+    if layer > 25: 
       STCs.append(One_Layer_STCs(one_layer_modules))
     else :
       STCs.append([])
