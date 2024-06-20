@@ -135,7 +135,7 @@ def Scintillatortype(u,Layer): #Return the type of the Scintillator Modules[inde
 
 def ScintillatorSTCs(Scintillator,Layer,Scint_Letter,Scint_Number):
     Scintillator = np.array(Scintillator)
-    I = [2,1,0,3]
+    I = [1,2,3,0]
     L = []
     if Scint_Letter in ['J','K','D','E','G'] and Scint_Number > 5 :
         ratio = Scint_Number/8
