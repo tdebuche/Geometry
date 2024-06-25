@@ -125,10 +125,10 @@ def TsvToXML( SrcFilename , TargetFilename ):
         # Fetch or create the motherboard element
         setattr( module , "mbid" , GUID.motherboard_id( module.plane , module.MB ) )
         if not module.mbid in Motherboards: Motherboards[ module.mbid ] = ET.SubElement( plane , "Motherboard" , attrib={ "id" : f"0x{module.mbid:08X}" , 
-                                                                                                                "TriggerLpGbts" : f"{module.engine_trig_fibres}" ,
-                                                                                                                "DaqLpGbts"     : f"{module.engine_data_fibres}" ,
                                                                                                                 "DaqRate"       : "" ,
                                                                                                                 "TCcount"       : "" } )
+        #"TriggerLpGbts" : f"{module.engine_trig_fibres}" ,
+        #"DaqLpGbts"     : f"{module.engine_data_fibres}" ,
         motherboard = Motherboards[ module.mbid ]
         # -------------------------------
 
