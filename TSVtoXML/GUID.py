@@ -90,7 +90,7 @@ def trigger_cell_id ( plane , u , v , cell_u , cell_v , endcap = 0 , sector = 3 
 
 def motherboard_id ( plane , mbid , endcap = 0 , sector = 3 , subsector = 0 ):
   if plane & ~0x3F : raise Exception( "Invalid plane" )
-  if mbid & ~0x1FFF : raise Exception( "Invalid mbid" )
+  #if mbid & ~0x1FFF : raise Exception( "Invalid mbid" )
   return Header( endcap , sector , subsector , 0 ) | ObjectType( 2 ) | ( ( plane & 0x3F ) << 16 ) | ( ( mbid & 0x1FFF ) << 3 )
 
 def trigger_lpGBT_id ( plane , mbid , index , endcap = 0 , sector = 3 , subsector = 0 ):
