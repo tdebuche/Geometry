@@ -77,7 +77,7 @@ def TsvToXML( SrcFilename , TargetFilename ):
           setattr( module , "dataRate" ,  float( module.dataRate_ld ) )
           setattr( module , "dataLinks" , int( float( module.dataLinks_ld )) )   
           
-        module.engine_trig_fibres ,  module.engine_data_fibres ,  module.engine_ctrl_fibres = int( float( module.engine_trig_fibres ) ) , int( float( module.engine_data_fibres ) ) , int( float( module.engine_ctrl_fibres ) )
+        #module.engine_trig_fibres ,  module.engine_data_fibres ,  module.engine_ctrl_fibres = int( float( module.engine_trig_fibres ) ) , int( float( module.engine_data_fibres ) ) , int( float( module.engine_ctrl_fibres ) )
         # -------------------------------
 
         # -------------------------------
