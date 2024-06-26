@@ -1,5 +1,5 @@
 from Python_Geometry.Geometric_tools import *
-from add_events.tools import get_STC_index_from_TC,get_HDorLD,getuvsector
+from create_plots.tools import get_STC_index_from_TC,get_HDorLD,getuvsector
 import matplotlib.pyplot as plt
 
 
@@ -8,8 +8,8 @@ def plot_TCs_of_multiple_events(args,events):
     event = events[0]
     si = event.ds_si
     Layer = args.Layer
-    Module_Vertices = item_list('Python_Geometry/src/Modules.json','vertices',Layer)
-    STC_Vertices = item_list('Python_Geometry/src/STCs.json','vertices',Layer)
+    Module_Vertices = item_list('src/'+args.Modmap_version+'/Modules.json','vertices',Layer)
+    STC_Vertices = item_list('src/'+args.Modmap_version+'/STCs.json','vertices',Layer)
     plt.figure(figsize = (12,12))
     colors = ['blue','red','green','yellow']
     TCs = si[si['good_tc_layer']==Layer][0]
