@@ -20,7 +20,7 @@ Module_UV = item_list('Python_Geometry/src/Modules.json','uv',Layer)
 Module_irot = item_list('Python_Geometry/src/Modules.json','irot',Layer)
 Module_TCcount = item_list('Python_Geometry/src/Modules.json','TCcount',Layer)
 STC_Vertices = item_list('Python_Geometry/src/STCs.json','vertices',Layer)
-
+STC_index = item_list('Python_Geometry/src/STCs.json','index',Layer)
 
 plt.figure(figsize = (12,8))
 plt.title(label =  'Layer '+str(Layer))
