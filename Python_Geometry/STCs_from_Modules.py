@@ -25,7 +25,7 @@ def One_Layer_STCs(layer,modules):
       
   return(STCs)
 
-def STC_geometry(args,jsonfile):
+def record_STCs(args,jsonfile):
   STCs = []
   with open(jsonfile,'r') as file:
     modules = json.load(file)
