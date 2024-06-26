@@ -1,5 +1,5 @@
 from Python_Geometry.Geometric_tools import *
-from add_events.tools import get_STC_index_from_TC
+from add_events.tools import get_STC_index_from_TC,get_HDorLD
 import matplotlib.pyplot as plt
 
 
