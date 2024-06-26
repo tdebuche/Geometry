@@ -24,11 +24,11 @@ def plot_TCs_of_multiple_events(args,events):
         Yvertices= vertices[1] +[vertices[1][0]]
         plt.plot(Xvertices,Yvertices,color = "black")
     for TC_idx in range(len(TCs['good_tc_layer'])):
-        u,v = getuvsector(Layer,TCs['good_tc_waferu'][TC_idx],TCs['good_tc_waferv'][TC_idx])
+        u,v,sector = getuvsector(Layer,TCs['good_tc_waferu'][TC_idx],TCs['good_tc_waferv'][TC_idx])
         cell_u,cell_v = TCs['good_tc_cellu'][TC_idx],TCs['good_tc_cellv'][TC_idx]
         HDorLD =  get_HDorLD(Layer,u,v)
         STC_index = get_STC_index_from_TC(HDorLD,cell_u,cell_v)
         #if TCs[TC_idx]['good_tc_waferu'] :
-        plt.annotate('('+str(STC_index)+','+str(STC_index%4)+')',(TCs['good_tc_x'][TC_idx]*10,TCs['good_tc_y'][TC_idx]*10))
+        plt.annotate('('+str(cell_u)+','+str(cell_v)+')',(TCs['good_tc_x'][TC_idx]*10,TCs['good_tc_y'][TC_idx]*10))
         plt.scatter(TCs['good_tc_x'][TC_idx]*10,TCs['good_tc_y'][TC_idx]*10,color = colors[STC_index%4])
     plt.show()
