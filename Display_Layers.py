@@ -1,5 +1,5 @@
 import argparse
-from create_plots.plot import provide_events
+from create_plots.read_events import provide_events
 from create_plots.plot import plot_layer_with_events,plot_layer
 
 
