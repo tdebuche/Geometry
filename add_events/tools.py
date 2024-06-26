@@ -8,8 +8,13 @@ HDorLD = defaultdict(list)
 for layer in range(len(Modules)):
   for module_idx in range(len(Modules[layer])):
     module = Modules[layer][module_idx]
-    HDorLD = module
-    HDorLD[(layer+1,module_u,module_v)].append()
+    res = (module["TCcount"] == 12)
+    HDorLD[(layer+1,module["u"],module["v"])].append(res)
+
+def get_HDorLD(Layer,module_u,module_v):
+  if HDorLD[(Layer,module_u,module_v)] :
+    return('HD')
+  return('LD')
 
 def get_STC_index(HDorLD,cell_u,cell_v):
   #LD
