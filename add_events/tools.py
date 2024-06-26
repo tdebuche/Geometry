@@ -15,7 +15,9 @@ def get_HDorLD(Layer,module_u,module_v):
   if HDorLD[(Layer,module_u,module_v)] != [] :
     if HDorLD[(Layer,module_u,module_v)][0] :
       return('HD')
-  return('LD')
+    else:
+      return('LD')
+  print((Layer,module_u,module_v))
 
 def get_STC_index(HDorLD,cell_u,cell_v):
   #LD
