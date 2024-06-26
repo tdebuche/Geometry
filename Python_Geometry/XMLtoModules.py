@@ -25,7 +25,7 @@ def read_xml(file):
                 v  = int(module_element.get('v'))
                 x = float(module_element.get('x'))
                 y = float(module_element.get('y'))
-                if module_element.get('TCcount') != "None":
+                if motherboard_element.get('TCcount') != "None":
                     TCcount = int(module_element.get('TCcount'))
                 else :
                     TCcount = 999
