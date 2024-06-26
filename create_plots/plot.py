@@ -64,7 +64,7 @@ def plot_layer_with_events(args,events):
     for TC_idx in range(len(TCs['good_tc_layer'])):
         u,v,sector = getuvsector(Layer,TCs['good_tc_waferu'][TC_idx],TCs['good_tc_waferv'][TC_idx])
         cell_u,cell_v = TCs['good_tc_cellu'][TC_idx],TCs['good_tc_cellv'][TC_idx]
-        HDorLD =  HDorLD_list[(Layer,u,v)]
+        HDorLD =  HDorLD_list[(Layer,u,v)][0]
         STC_index = get_STC_index_from_TC(HDorLD,cell_u,cell_v)
         #if TCs[TC_idx]['good_tc_waferu'] :
         plt.annotate('('+str(cell_u)+','+str(cell_v)+')',(TCs['good_tc_x'][TC_idx]*10,TCs['good_tc_y'][TC_idx]*10))
