@@ -10,7 +10,7 @@ def plot_TCs_of_multiple_events(args,events):
     Layer = args.Layer
     Module_Vertices = item_list('Python_Geometry/src/Modules.json','vertices',Layer)
     STC_Vertices = item_list('Python_Geometry/src/STCs.json','vertices',Layer)
-    plt.figure(figsize = (12,8))
+    plt.figure(figsize = (12,12))
     colors = ['blue','red','green']
     TCs = si[si['good_tc_layer']==Layer][0]
     for STC_idx in range(len(STC_Vertices)):
