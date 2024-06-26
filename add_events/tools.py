@@ -11,7 +11,7 @@ def get_STC_index(HDorLD,cell_u,cell_v):
     if (cell_u > cell_v) and (cell_v <= 7):
       return 1
   #HD
-   if HDorLD == 'HD':
+  if HDorLD == 'HD':
     if (cell_v-cell_u >= 6) and (cell_u <= 5):
       return 0
     if (cell_v-cell_u >= 6) and (cell_u <= 11) and (cell_u > 5):
