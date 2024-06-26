@@ -11,8 +11,6 @@ def plot_TCs_of_multiple_events(args,events):
     STC_Vertices = item_list('Python_Geometry/src/STCs.json','vertices',Layer)
     plt.figure(figsize = (12,8))
     TCs = si[si['good_tc_layer']==Layer][0]
-    #plt.scatter(TCs['good_tc_x']*10,TCs['good_tc_y']*10)
-    modules = Modules[layer-1]
     for STC_idx in range(len(STC_Vertices)):
 	    vertices = STC_Vertices[STC_idx]
 	    Xvertices= vertices[0] +[vertices[0][0]]
