@@ -17,6 +17,8 @@ def item_list(jsonfile,item,layer):
       L.append([data[module_idx]['u'],data[module_idx]['v']])
     if item =="vertices":
       L.append([data[module_idx]['verticesX'],data[module_idx]['verticesY']])
+    if item =="index":
+      L.append(data[module_idx]['index'])
   return L
 
 
