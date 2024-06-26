@@ -7,7 +7,7 @@ from collections import defaultdict
 import os
 
 
-def read_xml(args,file):
+def record_modules(args,file):
     tree = ET.parse(file)
     print(tree)
     root = tree.getroot()
