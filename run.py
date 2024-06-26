@@ -12,6 +12,6 @@ args = parser.parse_args()
 
 SrcFile = "src/"+args.Modmap_version+"/geometry_sipmontile.hgcal.txt"
 
-TsvToXML( SrcFile , "src/"+args.Modmap_version+"Geometry.xml" )
-record_modules(args,"Geometry.xml" )
+TsvToXML( SrcFile , "src/"+args.Modmap_version+"/Geometry.xml" )
+record_modules(args,"src/"+args.Modmap_version+"/Geometry.xml" )
 record_STCs("src/"+args.Modmap_version+"/Modules.json")
