@@ -1,23 +1,20 @@
 import json
 from collections import defaultdict
 
-with open("Python_Geometry/src/Modules.json",'r') as file:
-  Modules = json.load(file)
+def create_list_HDorLD(args):
+  with open('src/'+args.Modmap_version+'/Modules.json','r') as file:
+    Modules = json.load(file)
 
-HDorLD = defaultdict(list)
-for layer in range(len(Modules)):
-  for module_idx in range(len(Modules[layer])):
-    module = Modules[layer][module_idx]
-    res = (module["TCcount"] == 12)
-    HDorLD[(layer+1,module["u"],module["v"])].append(res)
+  HDorLD = defaultdict(list)
+  for layer in range(len(Modules)):
+    for module_idx in range(len(Modules[layer])):
+      module = Modules[layer][module_idx]
+      if module["TCcount"] == 12:
+        HDorLD[(layer+1,module["u"],module["v"])].append("HD")
+      else :
+        HDorLD[(layer+1,module["u"],module["v"])].append("LD")
+  return HDorLD
 
-def get_HDorLD(Layer,module_u,module_v):
-  if HDorLD[(Layer,module_u,module_v)] != [] :
-    if HDorLD[(Layer,module_u,module_v)][0] :
-      return('HD')
-    else:
-      return('LD')
-  print((Layer,module_u,module_v))
 
 def get_STC_index(HDorLD,cell_u,cell_v):
   #LD
