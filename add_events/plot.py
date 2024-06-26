@@ -10,7 +10,7 @@ def plot_TCs_of_multiple_events(args,events):
     Module_Vertices = item_list('Python_Geometry/src/Modules.json','vertices',Layer)
     STC_Vertices = item_list('Python_Geometry/src/STCs.json','vertices',Layer)
     plt.figure(figsize = (12,8))
-    TCs = si[si['good_tc_layer']==layer][0]
+    TCs = si[si['good_tc_layer']==Layer][0]
     #plt.scatter(TCs['good_tc_x']*10,TCs['good_tc_y']*10)
     modules = Modules[layer-1]
     for STC_idx in range(len(STC_Vertices)):
@@ -28,10 +28,6 @@ def plot_TCs_of_multiple_events(args,events):
         #if TCs[TC_idx]['good_tc_waferu'] :
         if not (u,v) in L:
             L.append((u,v))
-        if not getuvsector(layer,u,v):
-            print((u,v,layer))
-        # else:
-            #u,v,sector = getuvsector(layer,u,v)
         plt.annotate('('+str(u)+','+str(v)+')',(TCs['good_tc_x'][TC_idx]*10,TCs['good_tc_y'][TC_idx]*10))
         plt.scatter(TCs['good_tc_x'][TC_idx]*10,TCs['good_tc_y'][TC_idx]*10)
         plt.show()
