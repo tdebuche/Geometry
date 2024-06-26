@@ -25,7 +25,7 @@ def One_Layer_STCs(layer,modules):
       
   return(STCs)
 
-def STC_geometry(jsonfile):
+def STC_geometry(args,jsonfile):
   STCs = []
   with open(jsonfile,'r') as file:
     modules = json.load(file)
@@ -35,7 +35,7 @@ def STC_geometry(jsonfile):
       STCs.append(One_Layer_STCs(layer+1,one_layer_modules))
     else :
       STCs.append([])
-  with open('src/STCs.json', 'w') as file:
+  with open('src/'+args.Modmap_version+'/STCs.json', 'w') as file:
     json.dump(STCs, file)
 
 
