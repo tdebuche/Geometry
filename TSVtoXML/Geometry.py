@@ -70,8 +70,8 @@ def TsvToXML( SrcFilename , TargetFilename ):
         setattr( module , "IsHO" , (module.trigLinks > 3) and (module.plane < 27) )
         
         #module HDorLD is not defined in the same way in different modmap versions
-        if module.HDorLD == "True": module.HDorLD = "1"
-        elif module.HDorLD == "False": module.HDorLD = "0"
+        if module.HDorLD == True: module.HDorLD = "1"
+        elif module.HDorLD == False: module.HDorLD = "0"
         module.HDorLD = (module.HDorLD == "1")
         if module.HDorLD:
           setattr( module , "dataRate" ,  float( module.dataRate_hd ) )
