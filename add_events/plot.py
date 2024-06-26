@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 
 def plot_TCs_of_multiple_events(args,events):
     event = events[0]
+	si = event.ds_si
     Layer = args.Layer
     Module_Vertices = item_list('Python_Geometry/src/Modules.json','vertices',Layer)
     STC_Vertices = item_list('Python_Geometry/src/STCs.json','vertices',Layer)
     plt.figure(figsize = (12,8))
-	si = event.ds_si
     TCs = si[si['good_tc_layer']==layer][0]
     #plt.scatter(TCs['good_tc_x']*10,TCs['good_tc_y']*10)
     modules = Modules[layer-1]
