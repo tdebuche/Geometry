@@ -1,6 +1,6 @@
 import argparse
 from plot.read_events import provide_events
-from pot.create_plots import plot_TCs_of_multiple_events
+from plot.create_plots import plot_layer_with_events,plot_layer
 
 
 parser = argparse.ArgumentParser()
