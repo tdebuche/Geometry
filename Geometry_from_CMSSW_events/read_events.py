@@ -3,7 +3,6 @@ import numpy as np
 import awkward as ak
 import uproot
 import math
-from data_handle.tools import compress_value, printProgressBar, getuvsector
 
 class EventData():
     def __init__(self, ds_si, ds_sci, gen):
@@ -49,10 +48,8 @@ def provide_events(n):
 
     tree = uproot.open(filepath)[name_tree]
     events_ds = []
-    printProgressBar(0, n, prefix='Reading '+str(n)+' events from ROOT file:', suffix='Complete', length=50)
     for ev in range(n):
       data = tree.arrays(branches_tc, entry_start=ev, entry_stop=ev+1, library='ak')
       data_gen = tree.arrays(branches_gen, entry_start=ev, entry_stop=ev+1, library='ak')[0]
       events_ds.append(provide_event(data, data_gen))
-      printProgressBar(ev+1, n, prefix='Reading '+str(n)+' events from ROOT file:', suffix='Complete', length=50)
     return events_ds
