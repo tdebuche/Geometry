@@ -32,10 +32,10 @@ def plot_layer(args):
 		
 		x,y = np.sum(np.array(vertices[0]))/len(vertices[0]),np.sum(np.array(vertices[1]))/len(vertices[0])
 		if args.UV == "yes":
-	    	u,v = Module_UV[module_idx][0],Module_UV[module_idx][1]
-	    	plt.annotate("("+str(u)+","+str(v)+")",(x-60,y-10),size =  '8')
+	    		u,v = Module_UV[module_idx][0],Module_UV[module_idx][1]
+	    		plt.annotate("("+str(u)+","+str(v)+")",(x-60,y-10),size =  '8')
 		if args.irot == "yes":
-	    	plt.annotate(str(irot),(x-60,y-10),size =  '8')
+	    		plt.annotate(str(irot),(x-60,y-10),size =  '8')
 
 	plt.show()
 	
