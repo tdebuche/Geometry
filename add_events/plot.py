@@ -4,7 +4,7 @@ from Python_Geometry.Geometric_tools import *
 
 
 def plot_TCs_of_multiple_events(args,events):
-    event = event[0]
+    event = events[0]
     Layer = args.Layer
     Module_Vertices = item_list('Python_Geometry/src/Modules.json','vertices',Layer)
     STC_Vertices = item_list('Python_Geometry/src/STCs.json','vertices',Layer)
