@@ -1,5 +1,5 @@
 from Python_Geometry.Geometric_tools import *
-from add_events.tools import get_STC_index_from_TC,get_HDorLD
+from add_events.tools import get_STC_index_from_TC,get_HDorLD,getuvsector
 import matplotlib.pyplot as plt
 
 
@@ -24,7 +24,7 @@ def plot_TCs_of_multiple_events(args,events):
         Yvertices= vertices[1] +[vertices[1][0]]
         plt.plot(Xvertices,Yvertices,color = "black")
     for TC_idx in range(len(TCs['good_tc_layer'])):
-        u,v = TCs['good_tc_waferu'][TC_idx],TCs['good_tc_waferv'][TC_idx]
+        u,v = getuvsector(Layer,TCs['good_tc_waferu'][TC_idx],TCs['good_tc_waferv'][TC_idx])
         cell_u,cell_v = TCs['good_tc_cellu'][TC_idx],TCs['good_tc_cellv'][TC_idx]
         HDorLD =  get_HDorLD(Layer,u,v)
         STC_index = get_STC_index_from_TC(HDorLD,cell_u,cell_v)
