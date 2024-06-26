@@ -71,8 +71,8 @@ def TsvToXML( SrcFilename , TargetFilename ):
         
         #module HDorLD is not defined in the same way in different modmap versions
         print(module.plane ,module.u , module.v,module.HDorLD,type(module.HDorLD))
-        if module.HDorLD == True: module.HDorLD = "1"
-        elif module.HDorLD == False: module.HDorLD = "0"
+        if module.HDorLD == "True": module.HDorLD = "1"
+        elif module.HDorLD == "False": module.HDorLD = "0"
         module.HDorLD = (module.HDorLD == "1")
         if module.HDorLD:
           setattr( module , "dataRate" ,  float( module.dataRate_hd ) )
