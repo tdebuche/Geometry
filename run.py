@@ -2,7 +2,7 @@ import json
 import argparse
 from TSVtoXML.Geometry import TsvToXML
 from Python_Geometry.XMLtoModules import read_xml
-from Python_Geometry.Record_STCs import STC_geometry
+from Python_Geometry.create_STCs_from_Modules import record_STCs
 
 
 
@@ -14,4 +14,4 @@ SrcFile = "src/"+args.Modmap_version+"/geometry_sipmontile.hgcal.txt"
 
 TsvToXML( SrcFile , "src/"+args.Modmap_version+"Geometry.xml" )
 read_xml(args,"Geometry.xml" )
-STC_geometry("src/"+args.Modmap_version+"/Modules.json")
+record_STCs("src/"+args.Modmap_version+"/Modules.json")
