@@ -8,7 +8,7 @@ HDorLD = defaultdict(list)
 for layer in range(len(Modules)):
   for module_idx in range(len(Modules[layer])):
     module = Modules[layer][module_idx]
-    res = (module["TCcount"] == "12")
+    res = (module["TCcount"] == 12)
     HDorLD[(layer+1,module["u"],module["v"])].append(res)
 
 def get_HDorLD(Layer,module_u,module_v):
