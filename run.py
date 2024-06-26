@@ -10,8 +10,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--Modmap_version",default = 'v13.1', help="Geometry version")
 args = parser.parse_args()
 
-SrcFile = "TSVtoXML/src/"+args.Modmap_version+"/geometry_sipmontile.hgcal.txt"
+SrcFile = "src/"+args.Modmap_version+"/geometry_sipmontile.hgcal.txt"
 
 TsvToXML( SrcFile , "src/"+args.Modmap_version+"Geometry.xml" )
 read_xml(args,"Geometry.xml" )
-STC_geometry("Python_Geometry/src/"+args.Modmap_version+"/Modules.json")
+STC_geometry("src/"+args.Modmap_version+"/Modules.json")
