@@ -26,7 +26,7 @@ def plot_TCs_of_multiple_events(args,events):
     for TC_idx in range(len(TCs['good_tc_layer'])):
         u,v = TCs['good_tc_waferu'][TC_idx],TCs['good_tc_waferv'][TC_idx]
         cell_u,cell_v = TCs['good_tc_cellu'][TC_idx],TCs['good_tc_cellv'][TC_idx]
-        STC_index = get_STC_index(cell_u,cell_v,"LD")
+        STC_index = get_STC_index("LD",cell_u,cell_v)
         #if TCs[TC_idx]['good_tc_waferu'] :
         plt.annotate('('+str(u)+','+str(v)+')',(TCs['good_tc_x'][TC_idx]*10,TCs['good_tc_y'][TC_idx]*10))
         plt.scatter(TCs['good_tc_x'][TC_idx]*10,TCs['good_tc_y'][TC_idx]*10,color = colors[STC_index])
