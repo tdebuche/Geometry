@@ -68,8 +68,8 @@ def TsvToXML( SrcFilename , TargetFilename ):
         # Output link quantities (rate & links is per-module, fibres is per motherboard)
         module.trigRate , module.trigLinks = float( module.trigRate ) , int( float( module.trigLinks ) )
         setattr( module , "IsHO" , (module.trigLinks > 3) and (module.plane < 27) )
-        
-        module.HDorLD = (module.HDorLD == "1")
+        if not (module.HDorLD == True or module.HDorLD == False):
+          module.HDorLD = (module.HDorLD == "1")
         if module.HDorLD:
           setattr( module , "dataRate" ,  float( module.dataRate_hd ) )
           setattr( module , "dataLinks" , int( float( module.dataLinks_hd )) )
@@ -113,6 +113,7 @@ def TsvToXML( SrcFilename , TargetFilename ):
           setattr( module , "TCcount" ,  12 )
         else:
           setattr( module , "TCcount" ,  3 )
+          
         # -------------------------------
 
         # -------------------------------
