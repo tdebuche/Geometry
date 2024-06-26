@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 def plot_TCs_of_multiple_events(args,events):
     event = events[0]
-	si = event.ds_si
+    si = event.ds_si
     Layer = args.Layer
     Module_Vertices = item_list('Python_Geometry/src/Modules.json','vertices',Layer)
     STC_Vertices = item_list('Python_Geometry/src/STCs.json','vertices',Layer)
