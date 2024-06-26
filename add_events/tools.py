@@ -36,3 +36,13 @@ def get_STC_index(HDorLD,cell_u,cell_v):
       return 10
     if (cell_v-cell_u < -6) and (cell_v <= 11) and (cell_v > 5):
       return 11
+
+def get_STC_index_from_TC(HDorLD,cell_u,cell_v):
+  #LD
+  if HDorLD == 'LD':
+    if (cell_u <= cell_v) and (cell_u <= 3):
+      return 0
+    if (cell_v >= 4) and (cell_u >= 4):
+      return 1
+    if (cell_u > cell_v) and (cell_v <= 3):
+      return 2
