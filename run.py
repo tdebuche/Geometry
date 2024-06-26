@@ -1,11 +1,17 @@
 import json
+import argparse
 from TSVtoXML.Geometry import TsvToXML
 from Python_Geometry.XMLtoModules import read_xml
-from Python_Geometry.Record_Geometry import STC_geometry
+from Python_Geometry.Record_STCs import STC_geometry
 
 
-SrcFile = "TSVtoXML/src/v13.1/geometry_sipmontile.hgcal.txt"
-GeometryFile = TsvToXML( SrcFile , "Geometry.xml" )
-TsvToXML( SrcFile , "Geometry.xml" )
-read_xml("Geometry.xml" )
-STC_geometry("Python_Geometry/src/Modules.json")
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--Modmap_version",default = 'v13.1', help="Geometry version")
+args = parser.parse_args()
+
+SrcFile = "TSVtoXML/src/"+args.Modmap_version+"/geometry_sipmontile.hgcal.txt"
+
+TsvToXML( SrcFile , "src/"+args.Modmap_version+"Geometry.xml" )
+read_xml(args,"Geometry.xml" )
+STC_geometry("Python_Geometry/src/"+args.Modmap_version+"/Modules.json")
