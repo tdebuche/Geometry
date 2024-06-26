@@ -12,7 +12,7 @@ for layer in range(len(Modules)):
     HDorLD[(layer+1,module["u"],module["v"])].append(res)
 
 def get_HDorLD(Layer,module_u,module_v):
-  if HDorLD[(Layer,module_u,module_v)] :
+  if HDorLD[(Layer,module_u,module_v)][0] :
     return('HD')
   return('LD')
 
