@@ -33,7 +33,7 @@ def provide_event(ev, gen):
 def provide_events(n):
     base_path = '/eos/home-m/mchiusi/s2_emulator/'
     name_tree = 'l1tHGCalTriggerNtuplizer/HGCalTriggerNtuple'
-    filepath  = base_path + 'SinglePhoton_Pt-2To200_Fall22_MiniAOD-noPU_24-05-02_emulator_realbcstc_v2-v1.root'
+    filepath  = base_path + 'DoublePhoton_FlatPt-1To100_PU200_Phase2Fall22DRMiniAOD_24-05-02_emulator_realbcstc_v2-v1.root'
 
     branches_tc = [
         'good_tc_x', 'good_tc_y', 'good_tc_z',
