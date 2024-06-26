@@ -35,7 +35,7 @@ def STC_geometry(jsonfile):
       STCs.append(One_Layer_STCs(layer+1,one_layer_modules))
     else :
       STCs.append([])
-  with open('Python_Geometry/src/STCs.json', 'w') as file:
+  with open('src/STCs.json', 'w') as file:
     json.dump(STCs, file)
 
 
