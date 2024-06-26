@@ -11,7 +11,7 @@ def plot_TCs_of_multiple_events(args,events):
     Module_Vertices = item_list('Python_Geometry/src/Modules.json','vertices',Layer)
     STC_Vertices = item_list('Python_Geometry/src/STCs.json','vertices',Layer)
     plt.figure(figsize = (12,8))
-	colors = ['blue','red','green']
+    colors = ['blue','red','green']
     TCs = si[si['good_tc_layer']==Layer][0]
     for STC_idx in range(len(STC_Vertices)):
 	    vertices = STC_Vertices[STC_idx]
@@ -25,8 +25,8 @@ def plot_TCs_of_multiple_events(args,events):
         plt.plot(Xvertices,Yvertices,color = "black")
     for TC_idx in range(len(TCs['good_tc_layer'])):
         u,v = TCs['good_tc_waferu'][TC_idx],TCs['good_tc_waferv'][TC_idx]
-		cell_u,cell_v = TCs['good_tc_cellu'][TC_idx],TCs['good_tc_cellv'][TC_idx]
-		STC_index = get_STC_index(cell_u,cell_v,"LD")
+	cell_u,cell_v = TCs['good_tc_cellu'][TC_idx],TCs['good_tc_cellv'][TC_idx]
+	STC_index = get_STC_index(cell_u,cell_v,"LD")
         #if TCs[TC_idx]['good_tc_waferu'] :
         plt.annotate('('+str(u)+','+str(v)+')',(TCs['good_tc_x'][TC_idx]*10,TCs['good_tc_y'][TC_idx]*10))
         plt.scatter(TCs['good_tc_x'][TC_idx]*10,TCs['good_tc_y'][TC_idx]*10,color = colors[STC_index])
