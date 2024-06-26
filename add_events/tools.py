@@ -2,7 +2,7 @@ import json
 from collections import defaultdict
 
 with open("Python_Geometry/src/Modules.json",'r') as file:
-  Modules = json.load(file)[layer-1]
+  Modules = json.load(file)
 
 HDorLD = defaultdict(list)
 for layer in range(len(Modules)):
