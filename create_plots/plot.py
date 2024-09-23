@@ -22,14 +22,14 @@ def plot_layer(args):
 		Yvertices= vertices[1] +[vertices[1][0]]
 		plt.plot(Xvertices,Yvertices,color = "red")
 		x,y = np.sum(np.array(vertices[0]))/len(vertices[0]),np.sum(np.array(vertices[1]))/len(vertices[0])
-		plt.annotate(str(STC_indices[STC_idx]),(x-20,y-10),size =  '5')
+		plt.annotate(str(STC_indices[STC_idx]),(x,y),size =  '15')
 		
 	for module_idx in range(len(Module_Vertices)):
 		vertices = Module_Vertices[module_idx]
 		Xvertices= vertices[0] +[vertices[0][0]]
 		Yvertices= vertices[1] +[vertices[1][0]]
 		plt.plot(Xvertices,Yvertices,color = "black")
-		
+		irot = Module_irot[module_idx]
 		x,y = np.sum(np.array(vertices[0]))/len(vertices[0]),np.sum(np.array(vertices[1]))/len(vertices[0])
 		if args.UV == "yes":
 	    		u,v = Module_UV[module_idx][0],Module_UV[module_idx][1]

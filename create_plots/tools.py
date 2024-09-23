@@ -1,5 +1,17 @@
 import json
 from collections import defaultdict
+import numpy as np
+
+
+def one_sector_rotation(Vertices):
+    for idx in range(len(Vertices[0])):
+        Vertices[0][idx],Vertices[1][idx] = Vertices[0][idx] * np.cos(2*np.pi/3) -Vertices[1][idx] * np.sin(2*np.pi/3), Vertices[1][idx] * np.cos(2*np.pi/3) + Vertices[0][idx] * np.sin(2*np.pi/3)
+    return Vertices
+
+
+
+
+
 
 def create_list_HDorLD(args):
   with open('src/'+args.Modmap_version+'/Modules.json','r') as file:
