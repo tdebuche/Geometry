@@ -1,7 +1,7 @@
 import argparse
 from create_plots.read_events import provide_events
 from create_plots.plot import plot_layer_with_events,plot_layer
-
+from create_plots.plot_whole_layer import plot_whole_layer
 
 parser = argparse.ArgumentParser()
 
@@ -22,5 +22,6 @@ if args.events == "yes":
   plot_layer_with_events(args,events)
 
 if args.events == "no":
-  plot_layer(args)
+  #plot_layer(args)
+  plot_whole_layer(args)
   
