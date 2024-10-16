@@ -23,3 +23,6 @@ The program "create_json_geometry" runs every program of this repository for the
 -
 
 This program has one argument which corrresponds to the geometry version. 
+
+
+The program Display_Layer allows one to create a pllot of one layer. There are arguments to choose which items have to be plotted. It is possible to show the Trigger Cells fired by a given particule wirth the argument "event".
