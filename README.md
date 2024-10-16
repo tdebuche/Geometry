@@ -11,8 +11,15 @@ Basically, this repository allows one to :
 
 This recovery is splitted in few parts :
 
-- TSVtoXML : convert the TSV files (modmaps) with module geometry in xml format (programms have been taken in a repository of Andrew Rose from Imperial College)
-- Python_Geometry : convert the xml module geometry in json files
-- create_plots : create some plots to check some items
-- plots : record the needed plots here
+- TSVtoXML : convert the TSV files (modmaps) with module geometry in xml format (programs have been taken in a repository of Andrew Rose from Imperial College)
+- Python_Geometry : convert the xml module geometry in json files and create/record STCs
+- create_plots : create plots to check some items
+- plots : store the plots if needed
 - src : gather geometry files (modmaps AND xml AND json files)
+
+In each folder, there is a README to present each program.
+
+The program "create_json_geometry" runs every program of this repository for the production of geometry files 
+-
+
+This program has one argument which corrresponds to the geometry version. 
